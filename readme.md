@@ -2,6 +2,12 @@
 // Placeholder text //
 
 ## Changelog ##
+# v0.2 #
+* Added seperated string link to easely modify date, country
+* Added 2 functions to Class
+    - changeURLtoToday
+    - changeURLLocation
+
 # v0.1 // Initial file transfer #
 *  Added basic 'grabData.py' script
     - Grabs HTML from chosen website
