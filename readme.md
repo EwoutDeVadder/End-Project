@@ -2,6 +2,12 @@
 // Placeholder text //
 
 ## Changelog ##
+
+# v0.3 #
+* changeURLtoToday -> changeURLDate
+    - Works with today's date, library used: datetime
+* When updating URL date is updated aswell and the updated URL is crafted also.
+
 # v0.2 #
 * Added seperated string link to easely modify date, country
 * Added 2 functions to Class
