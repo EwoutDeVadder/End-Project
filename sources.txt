@@ -1,7 +1,0 @@
-Website Scraper:https://medium.com/analytics-vidhya/how-to-scrape-data-from-a-website-using-python-for-				beginner-5c770a1fbe2d
-
-Prices:		https://www.epexspot.com/en/market-data?market_area=BE&trading_date=&delivery_date=2023-09-20			&underlying_year=&modality=Continuous&sub_modality=&technology=&product=60					&data_mode=table&period=&production_period=
-
-Pull prices in: https://www.google.com/search?q=how+to+grab+data+from+website+to+excel&rlz=1C1GCEU_nlBE1022BE1022
-Excell		&oq=how+to+grab+data&aqs=chrome.1.69i59l2j69i64j69i57j0i22i30l4.3180j0j7&sourceid=chrome&ie=UTF-8		#kpvalbx=_abkKZZ-hBJHksAeL6aDACQ_38
-		
