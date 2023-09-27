@@ -2,6 +2,11 @@
 // Placeholder text //
 
 ## Changelog ##
+# v0.5.2 #
+* Added update function for easier readability
+* BUGS:
+    - [FIXED] Forgot to actually add the back to default values
+
 # v0.5.1 #
 * BUGS:
     - [FIXED] Delivery Date breaking when it's the first of any month

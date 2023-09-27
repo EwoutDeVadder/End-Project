@@ -18,6 +18,14 @@ class websiteScriptManager:
         self.prices = []
         self.today = datetime.datetime.today()
 
+    def update(self, offsetInDays):
+        self.updateURL(offsetInDays)
+        if self.compareDates() == False:
+            ValueError("OFFSET DATE ERROR: we will default back to today's prices.")
+            self.updateURL(0) 
+
+        self.updatePriceList()
+
     def craftNewURL(self):
         self.craftedUrl = self.splitURL[0]['area_link'] + self.splitURL[0]['area']
         self.craftedUrl += self.splitURL[1]['tradingdate_link'] + self.splitURL[1]['tradingdate']
