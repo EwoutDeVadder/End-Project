@@ -2,6 +2,12 @@
 // Placeholder text //
 
 ## Changelog ##
+# v0.5.1 #
+* BUGS:
+    - [FIXED] Delivery Date breaking when it's the first of any month
+    - [ADDITION] Going too far back in time defaults time back to today.
+        - Compares dates and sees if they match, if they don't, default to today's values.
+
 # v0.5 #
 * Date will automatically update again for QOL
 * updatePriceList will now automatically make all values float-point values.
@@ -10,8 +16,8 @@
     websiteScriptManager.
 
 * BUGS:
-    - [FIXED]If delivery date is the first of any month trading date breaks.
-    - If you go too far in time of back in time the website will default back to today.
+    - If delivery date is the first of any month trading date breaks.
+    - If you go too far in time or back in time the website will default back to today.
     It should return an error when this happens.
 
 # v0.4 #

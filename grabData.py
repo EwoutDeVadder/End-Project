@@ -1,7 +1,7 @@
-from bs4 import BeautifulSoup
-import requests 
-import lxml
-import datetime
+from bs4 import BeautifulSoup # pip install beautifulsoup4
+import requests # pip install requests
+import lxml # pip install lxml
+import datetime # pip install datetime
 
 class websiteScriptManager:
     def __init__(self) -> None:     
@@ -13,51 +13,49 @@ class websiteScriptManager:
             {'deliverydate_link' : "&delivery_date=", 'deliverydate' : "2023-09-21"},
             "&underlying_year=&modality=Auction&sub_modality=DayAhead&technology=&product=60&data_mode=table&period=&production_period="]
         self.craftedUrl = ""
-        self.requestValue = 0
         self.soup = BeautifulSoup()
         self.split = []
         self.prices = []
+        self.today = datetime.datetime.today()
 
     def craftNewURL(self):
         self.craftedUrl = self.splitURL[0]['area_link'] + self.splitURL[0]['area']
         self.craftedUrl += self.splitURL[1]['tradingdate_link'] + self.splitURL[1]['tradingdate']
         self.craftedUrl += self.splitURL[2]['deliverydate_link'] + self.splitURL[2]['deliverydate']
         self.craftedUrl += self.splitURL[-1]
-        #print(self.craftedUrl)
 
-    def updateURL(self, offset = 0):
-        self.updateURLDate(offset)
+    def updateURL(self, offsetInDays = 0):
+        self.updateURLDate(offsetInDays)
 
         self.craftNewURL()
-        self.requestValue = requests.get(self.craftedUrl)
-        self.soup = BeautifulSoup(self.requestValue.text, 'lxml')
+        requestValue = requests.get(self.craftedUrl)
+        self.soup = BeautifulSoup(requestValue.text, 'lxml')
     
+    def updateURLDate(self, offsetInDays = 0):
+        self.date = datetime.date(self.today.year, self.today.month, self.today.day)
+
+        if offsetInDays != 0:
+            self.date += datetime.timedelta(days=offsetInDays)
+
+        self.splitURL[1]['tradingdate'] = str(self.date + datetime.timedelta(days= -1))
+        self.splitURL[2]['deliverydate'] = str(self.date)
+
     def updatePriceList(self):
         self.prices = self.soup.findAll('tr', class_="child")
         for index, unused in enumerate(self.prices):
             self.prices[index] = float(self.prices[index].text.split()[3])
-
-    def updateURLDate(self, offsetInDays = 0):
-        date = datetime.date.today()
-
-        if offsetInDays != 0:
-            date += datetime.timedelta(days=offsetInDays)
-
-        self.splitURL[1]['tradingdate'] = str(date + datetime.timedelta(days= -1))
-        self.splitURL[2]['deliverydate'] = str(date)
-
-    def updateURLDate2(self, offsetInDays = 0):
-        date = datetime.datetime.today()
-        print(date.date)
-
+        
     def changeURLLocation(self, location):
         self.splitURL[0]['area'] = location
 
-# Testing
-x = websiteScriptManager()
-#x.updateURLDate2()
-x.updateURL()
-#x.makePriceList()
-print(x.craftedUrl)
-
-#x.craftNewURL()
+    def compareDates(self):
+        siteDateSoup = self.soup.find(class_="last-update")
+        siteDateSoup = siteDateSoup.text.split()[2:5]
+        for index, months in enumerate(["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]):
+            if siteDateSoup[1] == months:
+                siteDateSoup[1] = index + 1
+        siteDate = datetime.date(int(siteDateSoup[2]),int(siteDateSoup[1]),int(siteDateSoup[0]))
+        siteDate += datetime.timedelta(days=1)
+        if self.date == siteDate:
+            return True
+        return False
