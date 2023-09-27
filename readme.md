@@ -3,6 +3,12 @@
 
 ## Changelog ##
 
+# v0.4 #
+* changeURLDate -> updateURLDate
+    - Added offset so you can (optionally) add an offset to the date which is used.
+* changeURLLocation now works and you can change the country to any valid country.
+* Date wont automatically update after calling updateURL.
+
 # v0.3 #
 * changeURLtoToday -> changeURLDate
     - Works with today's date, library used: datetime

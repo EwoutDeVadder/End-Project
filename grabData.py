@@ -25,7 +25,6 @@ class websiteScriptManager:
         #print(self.craftedUrl)
 
     def updateURL(self):
-        self.changeURLDate()
         self.craftNewURL()
         self.requestValue = requests.get(self.craftedUrl)
         self.soup = BeautifulSoup(self.requestValue.text, 'lxml')
@@ -34,19 +33,24 @@ class websiteScriptManager:
         self.prices = self.soup.findAll('tr', class_="child")
         for index, unused in enumerate(self.prices):
             self.prices[index] = self.prices[index].text.split()[3]
-    def changeURLDate(self):
-        today = datetime.date.today()
-        self.splitURL[1]['tradingdate'] = str(today.year) + "-" + str(today.month) + "-" + str(today.day - 1)
-        self.splitURL[2]['deliverydate'] = str(today)
-    def changeURLLocation(self):
-        return 0
-        
+
+    def updateURLDate(self, offsetInDays = 0):
+        date = datetime.date.today()
+
+        if offsetInDays != 0:
+            date += datetime.timedelta(days=offsetInDays)
+
+        self.splitURL[1]['tradingdate'] = str(date.year) + "-" + str(date.month) + "-" + str(date.day - 1)
+        self.splitURL[2]['deliverydate'] = str(date)
+
+    def changeURLLocation(self, location):
+        self.splitURL[0]['area'] = location
 
 # Testing
-#x = websiteScriptManager()
-
-#x.updateURL()
+x = websiteScriptManager()
+x.updateURLDate()
+x.updateURL()
 #x.makePriceList()
-#print(x.prices)
+print(x.craftedUrl)
 
 #x.craftNewURL()
