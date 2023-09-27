@@ -4,7 +4,7 @@ import lxml
 import datetime
 
 class websiteScriptManager:
-    def __init__(self):     
+    def __init__(self) -> None:     
         # 3 PARAMETERS: AREA, TRADING DATE, DELIVERY DATE
         # + Rest of string 
         self.splitURL = [{
@@ -16,6 +16,7 @@ class websiteScriptManager:
         self.requestValue = 0
         self.soup = BeautifulSoup()
         self.split = []
+        self.prices = []
 
     def craftNewURL(self):
         self.craftedUrl = self.splitURL[0]['area_link'] + self.splitURL[0]['area']
@@ -24,15 +25,17 @@ class websiteScriptManager:
         self.craftedUrl += self.splitURL[-1]
         #print(self.craftedUrl)
 
-    def updateURL(self):
+    def updateURL(self, offset = 0):
+        self.updateURLDate(offset)
+
         self.craftNewURL()
         self.requestValue = requests.get(self.craftedUrl)
         self.soup = BeautifulSoup(self.requestValue.text, 'lxml')
     
-    def makePriceList(self):
+    def updatePriceList(self):
         self.prices = self.soup.findAll('tr', class_="child")
         for index, unused in enumerate(self.prices):
-            self.prices[index] = self.prices[index].text.split()[3]
+            self.prices[index] = float(self.prices[index].text.split()[3])
 
     def updateURLDate(self, offsetInDays = 0):
         date = datetime.date.today()
@@ -40,15 +43,19 @@ class websiteScriptManager:
         if offsetInDays != 0:
             date += datetime.timedelta(days=offsetInDays)
 
-        self.splitURL[1]['tradingdate'] = str(date.year) + "-" + str(date.month) + "-" + str(date.day - 1)
+        self.splitURL[1]['tradingdate'] = str(date + datetime.timedelta(days= -1))
         self.splitURL[2]['deliverydate'] = str(date)
+
+    def updateURLDate2(self, offsetInDays = 0):
+        date = datetime.datetime.today()
+        print(date.date)
 
     def changeURLLocation(self, location):
         self.splitURL[0]['area'] = location
 
 # Testing
 x = websiteScriptManager()
-x.updateURLDate()
+#x.updateURLDate2()
 x.updateURL()
 #x.makePriceList()
 print(x.craftedUrl)

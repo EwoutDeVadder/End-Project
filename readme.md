@@ -2,6 +2,17 @@
 // Placeholder text //
 
 ## Changelog ##
+# v0.5 #
+* Date will automatically update again for QOL
+* updatePriceList will now automatically make all values float-point values.
+* added a main.py file to combine all 'libraries' and make a readable program. 
+    - added class processData which automatically makes a variable data which is the
+    websiteScriptManager.
+
+* BUGS:
+    - [FIXED]If delivery date is the first of any month trading date breaks.
+    - If you go too far in time of back in time the website will default back to today.
+    It should return an error when this happens.
 
 # v0.4 #
 * changeURLDate -> updateURLDate
