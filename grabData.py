@@ -18,7 +18,7 @@ class websiteScriptManager:
         self.prices = []
         self.today = datetime.datetime.today()
 
-    def update(self, offsetInDays):
+    def update(self, offsetInDays): # put offset to 1 to check if tomorrow is available, if not, it grabs today's prices.
         self.updateURL(offsetInDays)
         if self.compareDates() == False:
             ValueError("OFFSET DATE ERROR: we will default back to today's prices.")

@@ -2,6 +2,15 @@
 // Placeholder text //
 
 ## Changelog ##
+# v0.6-branch-calcData #
+* Added calcData.py
+    * Returns median of lists.
+    * Returns average of lists.
+* Added self.processData in main.py
+* Changed class name in main.py to main.
+* Trivial:
+    * Added a comment in grabData.py at line 21
+
 # v0.5.2 #
 * Added update function for easier readability
 * BUGS:

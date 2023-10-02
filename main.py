@@ -1,12 +1,13 @@
 import grabData
+import calcData
 
-class processData():
+class main():
     def __init__(self) -> None:
         self.data = grabData.websiteScriptManager()
+        self.processData = calcData.dataProcessor()
 
-x = processData()
+x = main()
 
-x.data.changeURLLocation("DE-LU")
 x.data.updateURL()
 x.data.updatePriceList()
 print(x.data.prices)
