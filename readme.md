@@ -2,6 +2,12 @@
 // Placeholder text //
 
 ## Changelog ##
+# hotfix v0.6.1.1 #
+* Added gitignore to multiple folders
+    - pycache
+    - HOME ASSISTANT (unused homeassistant directory for a virtual machine)
+    - node_modules (not being used anymore)
+
 # v0.6.1 #
 * Continued on desktop.
 * Added HACS -> Works
@@ -16,7 +22,6 @@
     - Configure HACS ( Requires a connection to github with a 6-figure key.)
     - Go to the new HACS tab to install OCPP
     - Configure OCPP
-* 
 
 # v0.6 #
 * Tested with Virtual Machine, works on desktop,
