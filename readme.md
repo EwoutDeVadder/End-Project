@@ -2,6 +2,31 @@
 // Placeholder text //
 
 ## Changelog ##
+# v0.6.1 #
+* Continued on desktop.
+* Added HACS -> Works
+    - Configured HACS to work.
+* Added OCPP -> Doesn't work because there's no chare point.
+* Installation documentation on HACS says to use Linux 64 bit
+  but 32 bit works aswell for me.
+* To make it work I needed to add SSH as an integration.
+    - Then open the SSH-terminal
+    - Then run a command to install HACS
+    - Add HACS as an integration
+    - Configure HACS ( Requires a connection to github with a 6-figure key.)
+    - Go to the new HACS tab to install OCPP
+    - Configure OCPP
+* 
+
+# v0.6 #
+* Tested with Virtual Machine, works on desktop,
+  not at school on laptop. 
+* Trying to add OCPP to project for Home Assistant.
+  - I need HACS and Home Assistant on a VM.
+  - VM working but Home Assistant is not.
+  - Have not yet tried adding HACS due to HA not
+    working.
+
 # v0.5.2 #
 * Added update function for easier readability
 * BUGS:

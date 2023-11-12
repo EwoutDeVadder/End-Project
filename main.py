@@ -4,9 +4,9 @@ class processData():
     def __init__(self) -> None:
         self.data = grabData.websiteScriptManager()
 
-x = processData()
+process = processData()
 
-x.data.changeURLLocation("DE-LU")
-x.data.updateURL()
-x.data.updatePriceList()
-print(x.data.prices)
+process.data.changeURLLocation("BE")
+process.data.updateURL()
+process.data.updatePriceList()
+print(process.data.prices)
