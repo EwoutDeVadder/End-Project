@@ -1,3 +1,9 @@
+# Website scraper and some simple settings which
+# can be easily configured for other countries or
+# an offset in days. 
+# Only takes the data that is actually usefull
+# for my program.
+
 from bs4 import BeautifulSoup # pip install beautifulsoup4
 import requests # pip install requests
 import lxml # pip install lxml

@@ -1,0 +1,3 @@
+# Save Location(s)
+localSave = True
+serverSave = False
