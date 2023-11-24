@@ -1,0 +1,8 @@
+ocpp/custom_components/ocpp/number.py
+OcppNumber
+ocpp/custom_components/ocpp/switch.py
+current_power_w
+
+SOC
+ocpp/custom_components/ocpp/sensor.py
+176 device_class = SensorDeviceClass.BATTERY

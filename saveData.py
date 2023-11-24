@@ -1,24 +1,23 @@
 # saving_data{
-# 'date': []
+# 'date': datetime var
 # 'todays_prices': []
 # 'average_prices_today': 0
 # }
-
+import datetime
 import json
 
-class LocalSave():
-    def __init__(self) -> None:
+class SaveData():
+    def __init__(self, date: datetime, prices: list, averagePrices: float) -> None:
+        self.saving_data = {
+            'date': date,
+            'todays_prices': prices,
+            'average_prices_today': averagePrices
+        }
+
+    def localSave(self):
         pass
 
-class ServerSave():
-    def __init__(self) -> None:
+    def serverSave(self):
         pass
 
-class LoadLocalSave():
-    def __init__(self) -> None:
-        pass
-
-class ServerRequestSave():
-    def __init__(self) -> None:
-        pass
 
