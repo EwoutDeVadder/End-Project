@@ -4,6 +4,7 @@
 
 import grabData
 import calculateData
+import datetime
 import saveData
 
 class processData():
@@ -16,13 +17,6 @@ process = processData()
 process.data.changeURLLocation("BE")
 process.data.updateURL()
 process.data.updatePriceList()
-print(process.data.prices)
-process.calc.calcAvrOfCurDay(process.data.prices)
-print(process.calc.averagePrice)
-print('-------------------------')
-for price in process.data.prices:
-    if price < process.calc.averagePrice:
-        print(price)
-    
-print('-------------------------')
-print(process.calc.calcLowestOfCurDay(process.data.prices))
+
+process.save = saveData.SaveData(process.data.date, process.data.prices)
+process.save.tempLocalServerSave()
