@@ -15,8 +15,8 @@ class processData():
 process = processData()
 
 process.data.changeURLLocation("BE")
-process.data.updateURL()
+process.data.updateURL(1)
 process.data.updatePriceList()
-
+print(process.data.craftedUrl)
 process.save = saveData.SaveData(process.data.date, process.data.prices)
 process.save.tempLocalServerSave()
