@@ -8,7 +8,7 @@ import sqlite3
 
 class SaveData():
     def __init__(self, date: datetime.date, prices: list) -> None:
-        id = date.day * 1000000 + date.month * 10000 + date.year
+        id = date.day + date.month * 100 + date.year * 10000
         print(id)
         self.saving_data = {
             'ID': id,
