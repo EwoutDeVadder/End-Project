@@ -1,0 +1,24 @@
+#
+# Data overdracht naar Daoud
+#   - Een script schrijven dat de data naar zijn database kan uploaden en dat
+#     deze data er terug van afgehaald kan worden   
+#
+# Alle code naar HomeAssistant overzetten
+#   - Zorgen dat dit constant runned of toch eens per aantal minuten
+# 
+# Zorgen dat de switch gemaakt kan worden tussen Batterij of van het net nemen.
+#   - Moet redelijk simpel zijn met wat aanpasbare variabels
+#   - Plus een exception list toevoegen dat de gebruiker makkelijk kan aanpassen
+#
+# Home assistant laten runnen op een ESP32 of raspberryPI zodat deze niet in de weg
+# staat en niet constant veel plaats in neemt zoals een desktop computer of een laptop
+#   - Zou niet al te moeilijk moeten zijn nadat alles al een plugin is gemaakt van de
+#     code.
+#
+# Home assistant interface voor alle data nog te bekijken in Home assistant zelf.
+#   - Hier kan ik research voor doen.
+#
+# Scriptie schrijven
+#
+# Powerpoint maken voor halftijdse Jury.
+#
